@@ -36,7 +36,7 @@
         top: 0;
         right: -150%;
         height: 100%;
-        transition: all 1s ease;
+        transition: right .5s ease;
 
         &_active {
             right: 0;
@@ -141,6 +141,6 @@
         height: 4px;
         width: 80%;
         background-color: #fff;
-        transition: all 1s ease;
+        transition: transform .5s ease;
     }
 }
