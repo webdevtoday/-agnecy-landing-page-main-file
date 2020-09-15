@@ -5,6 +5,7 @@ $fontsize: 16px; // Body Font Size
 $textcolor: #333; // Text Color
 $system: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Font Family
 $roboto: Roboto, sans-serif; // Roboto Font Family
+$opensans: OpenSans, sans-serif; // OpenSans Font Family
 
 // Bootstrap compatible gutter variable => $gutter
 $grid-gutter-width: 20px;
@@ -34,6 +35,12 @@ $gutter: $grid-gutter-width;
 @include font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2');
 @include font('Roboto', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2');
 
+@include font('OpenSans', normal, 400, '../fonts/opensans-regular-webfont.woff2');
+@include font('OpenSans', italic, 400, '../fonts/opensans-italic-webfont.woff2');
+@include font('OpenSans', normal, 600, '../fonts/opensans-semibold-webfont.woff2');
+@include font('OpenSans', normal, 700, '../fonts/opensans-bold-webfont.woff2');
+@include font('OpenSans', normal, 800, '../fonts/opensans-extrabold-webfont.woff2');
+
 // GENERAL DOCUMENT STYLES
 
 ::placeholder {
@@ -52,11 +59,20 @@ input, textarea {
 }
 
 body {
-	font-family: $roboto;
+	font-family: $opensans;
 	font-size: $fontsize;
 	min-width: 320px;
 	position: relative;
 	line-height: 1.65;
 	overflow-x: hidden;
 	color: $textcolor;
+}
+
+.link-default {
+	color: inherit;
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+		color: inherit;
+	}
 }
