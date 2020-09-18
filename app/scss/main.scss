@@ -13,9 +13,59 @@
     }
     &__first-screen{}
 }
-.first-screen{
+
+.burger {
+    display: none;
+    width: 50px;
+    height: 50px;
+    background-color: #313131;
+    z-index: 200;
+    
+    @media (max-width: 450px) {
+        display: block;
+
+        &_active {
+            .burger {
+                &__container {
+                    position: relative;
+                }
+                &__line {
+                    position: absolute;
+                }
+                &__line:nth-child(1) {
+                    transform: rotate(-45deg);
+                }
+                &__line:nth-child(2) {
+                    display: none;
+                }
+                &__line:nth-child(3) {
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+
+    &__container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    &__line {
+        height: 4px;
+        width: 80%;
+        background-color: #fff;
+        transition: transform .5s ease;
+    }
+}
+
+
+.first-screen {
     background-color: #f6f2f2;
-    &__container{
+    &__container {
         // padding: 30px 165px;
         padding: 30px 10%;
         @include media-breakpoint-down(lg) {
@@ -53,16 +103,16 @@
     }
 
     &__headings {
-        width: 47%;
+        // width: 47%;
         padding: 0 0 10px 0;
 
-        @include media-breakpoint-down(md) {
-            width: 50%;
-        }
+        // @include media-breakpoint-down(md) {
+        //     width: 50%;
+        // }
 
-        @include media-breakpoint-down(sm) {
-            width: 80%;
-        }
+        // @include media-breakpoint-down(sm) {
+        //     width: 80%;
+        // }
     }
 
     &__title {
@@ -139,6 +189,23 @@
         color: #ffffff;
         border-radius: 5px;
         background-color: #ff2d2d;
+        box-shadow: 0px 0px 0px 0px #000;
+
+        transition: all .4s ease;
+
+        // Правильный порядок, чтобы всё работало
+        &:link {
+
+        }
+        &:visited {
+        }
+        &:hover {
+            box-shadow: 0px 0px 7px 3px #000;
+        }
+        &:active {
+            box-shadow: inset 0px 0px 7px 3px #000;
+        }
+        
     }
 
     &__video {
@@ -252,50 +319,14 @@
     }
 }
 
-.burger {
-    display: none;
-    width: 50px;
-    height: 50px;
-    background-color: #313131;
-    z-index: 200;
-    
-    @media (max-width: 450px) {
-        display: block;
+.headings {
+    width: 47%;
 
-        &_active {
-            .burger {
-                &__container {
-                    position: relative;
-                }
-                &__line {
-                    position: absolute;
-                }
-                &__line:nth-child(1) {
-                    transform: rotate(-45deg);
-                }
-                &__line:nth-child(2) {
-                    display: none;
-                }
-                &__line:nth-child(3) {
-                    transform: rotate(45deg);
-                }
-            }
-        }
+    @include media-breakpoint-down(md) {
+        width: 50%;
     }
 
-    &__container {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-
-    &__line {
-        height: 4px;
+    @include media-breakpoint-down(sm) {
         width: 80%;
-        background-color: #fff;
-        transition: transform .5s ease;
     }
 }
