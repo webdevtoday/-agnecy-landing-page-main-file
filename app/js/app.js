@@ -71,6 +71,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		});
 	}
 
-	debugWindow();
+	// debugWindow();
 
 });
