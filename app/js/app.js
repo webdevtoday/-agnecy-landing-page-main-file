@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	const burger = document.querySelector('.burger');
 	const mainMenu = document.querySelector('.main-menu');
+	const firstScreenContainer = document.querySelector('.first-screen__container');
+
 
 	burger.addEventListener('click', () => {
 		burger.classList.toggle('burger_active');
@@ -20,22 +22,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 	// Main menu fixed to top
-	const firstScreenContent = document.querySelector('.first-screen__content');
-
-	let windowWidth = scrollWidth();
 
 	function fixedMainMenu() {
-		if (windowWidth <= 450) return false;
-		if (window.pageYOffset <= 200) {
-			mainMenu.style.position = "";
-			mainMenu.style.top = "";
+		let windowWidth = scrollWidth();
+		let heightMainMenu = mainMenu.offsetHeight;
+
+		if (windowWidth <= 450 || window.pageYOffset <= heightMainMenu) {
+			mainMenu.classList.remove("main-menu_fixed-to-top");
 			mainMenu.style.width = "";
+			mainMenu.style.left = "";
+			mainMenu.style.right = "";
 			return false;
 		}
 
-		mainMenu.style.position = "fixed";
-		mainMenu.style.top = 0;
-		mainMenu.style.width = `${firstScreenContent.offsetWidth}px`;
+		mainMenu.classList.add("main-menu_fixed-to-top");
+		mainMenu.style.width = `auto`;
+		console.log(getComputedStyle(firstScreenContainer).paddingLeft);
+		mainMenu.style.left = `${getComputedStyle(firstScreenContainer).paddingLeft}`;
+		mainMenu.style.right = `${getComputedStyle(firstScreenContainer).paddingRight}`;
 		return true;
 	}
 
